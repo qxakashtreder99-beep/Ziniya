@@ -1,0 +1,1917 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0510" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="description" content="A Special Romantic Apology & Love Experience Made Only For Ziniya ❤️" />
+  <title>ZINIYA — AMAR JAN ❤️</title>
+
+  <link rel="icon" type="image/svg+xml" href="icon.svg" />
+  <link rel="apple-touch-icon" href="icon.svg" />
+  <link rel="manifest" href="manifest.json" />
+
+  <!-- Online Elegant Fonts (with safe offline fallbacks) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-black: #07040a;
+      --bg-deep: #120718;
+      --red: #ff1e4d;
+      --red-dark: #b80c36;
+      --rose: #ff4d8d;
+      --soft-pink: #ffb3c6;
+      --gold: #f5c542;
+      --gold-soft: #ffe28a;
+      --purple: #9d4edd;
+      --purple-deep: #4c1d95;
+      --glass-bg: rgba(24, 12, 30, 0.58);
+      --glass-border: rgba(255, 179, 198, 0.22);
+      --text-main: #fff5f8;
+      --text-muted: #e5c6d4;
+      --font-bn: 'Hind Siliguri', 'Noto Sans Bengali', system-ui, -apple-system, sans-serif;
+      --font-en: 'Poppins', system-ui, -apple-system, sans-serif;
+      --font-serif: 'Playfair Display', Georgia, serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: var(--bg-black);
+      color: var(--text-main);
+      font-family: var(--font-bn);
+    }
+
+    /* Ambient Luxury Background */
+    .app-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background:
+        radial-gradient(circle at 18% 15%, rgba(255, 30, 77, 0.24), transparent 45%),
+        radial-gradient(circle at 82% 20%, rgba(157, 78, 221, 0.25), transparent 45%),
+        radial-gradient(circle at 50% 88%, rgba(245, 197, 66, 0.14), transparent 50%),
+        linear-gradient(160deg, #07040a 0%, #14081c 50%, #09040d 100%);
+      transition: filter 0.8s ease, background 0.8s ease;
+    }
+
+    /* Ambient Glowing Orbs */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(55px);
+      opacity: 0.45;
+      pointer-events: none;
+      z-index: 0;
+      animation: floatOrb 12s ease-in-out infinite alternate;
+    }
+    .orb-1 { width: 240px; height: 240px; background: var(--red); top: -60px; left: -60px; }
+    .orb-2 { width: 260px; height: 260px; background: var(--purple); bottom: -80px; right: -60px; animation-delay: -5s; }
+    .orb-3 { width: 180px; height: 180px; background: var(--gold); top: 45%; left: 55%; opacity: 0.16; animation-delay: -3s; }
+
+    @keyframes floatOrb {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(25px, -25px) scale(1.12); }
+    }
+
+    /* Particle Layers */
+    #ambientLayer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    #fxCanvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 30;
+    }
+
+    .floating-item {
+      position: absolute;
+      bottom: -40px;
+      user-select: none;
+      will-change: transform, opacity;
+      animation: riseUp linear forwards;
+    }
+
+    .falling-petal {
+      position: absolute;
+      top: -40px;
+      user-select: none;
+      will-change: transform, opacity;
+      animation: fallDown linear forwards;
+    }
+
+    @keyframes riseUp {
+      0% { transform: translateY(0) translateX(0) scale(0.7) rotate(0deg); opacity: 0; }
+      15% { opacity: 0.85; }
+      85% { opacity: 0.75; }
+      100% { transform: translateY(-110vh) translateX(var(--drift, 30px)) scale(1.15) rotate(var(--rot, 25deg)); opacity: 0; }
+    }
+
+    @keyframes fallDown {
+      0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+      12% { opacity: 0.9; }
+      85% { opacity: 0.8; }
+      100% { transform: translateY(112vh) translateX(var(--drift, -40px)) rotate(var(--rot, 240deg)); opacity: 0; }
+    }
+
+    /* Loading Splash Screen */
+    #loadingScreen {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: radial-gradient(circle at center, #1e0a24 0%, #07040a 75%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      padding: 24px;
+      transition: opacity 0.7s ease, visibility 0.7s ease;
+    }
+    #loadingScreen.hide {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .loader-heart {
+      font-size: 64px;
+      filter: drop-shadow(0 0 22px rgba(255, 30, 77, 0.85));
+      animation: heartbeat 1.15s infinite ease-in-out;
+    }
+
+    .loader-title {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, var(--soft-pink), var(--gold-soft), var(--rose));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+    }
+
+    .loader-sub {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+    }
+
+    .loader-bar-wrap {
+      width: 210px;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .loader-bar {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--red), var(--rose), var(--gold));
+      border-radius: 99px;
+      animation: loadFill 1.8s ease forwards;
+    }
+
+    @keyframes loadFill {
+      0% { width: 0%; }
+      100% { width: 100%; }
+    }
+
+    /* Mobile App Shell */
+    .app-shell {
+      position: relative;
+      z-index: 5;
+      width: 100%;
+      max-width: 480px;
+      height: 100dvh;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      padding: env(safe-area-inset-top, 10px) 14px env(safe-area-inset-bottom, 12px);
+    }
+
+    @media (min-width: 520px) {
+      .app-shell {
+        height: min(94dvh, 860px);
+        margin-top: min(3dvh, 24px);
+        border-radius: 34px;
+        border: 1px solid rgba(255, 179, 198, 0.2);
+        background: rgba(10, 5, 15, 0.45);
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.75), 0 0 40px rgba(255, 30, 77, 0.15);
+        overflow: hidden;
+      }
+    }
+
+    /* Top Bar + Progress */
+    .top-header {
+      flex-shrink: 0;
+      padding: 8px 4px 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 10;
+    }
+
+    .top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .brand-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 179, 198, 0.22);
+      backdrop-filter: blur(10px);
+      font-family: var(--font-en);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      color: var(--soft-pink);
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .icon-btn {
+      height: 34px;
+      min-width: 34px;
+      padding: 0 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 179, 198, 0.24);
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(10px);
+      color: var(--text-main);
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .icon-btn:active { transform: scale(0.93); }
+    .icon-btn.active {
+      background: linear-gradient(135deg, rgba(255, 30, 77, 0.4), rgba(157, 78, 221, 0.4));
+      border-color: var(--rose);
+      box-shadow: 0 0 14px rgba(255, 77, 141, 0.35);
+    }
+
+    .progress-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      padding: 0 2px;
+    }
+
+    .step-badge {
+      font-family: var(--font-en);
+      font-weight: 600;
+      color: var(--gold-soft);
+      letter-spacing: 0.6px;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.09);
+      border-radius: 99px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 6.66%;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--red), var(--rose), var(--purple), var(--gold));
+      box-shadow: 0 0 12px rgba(255, 77, 141, 0.7);
+      transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* Music Drawer */
+    .music-drawer {
+      background: rgba(20, 9, 28, 0.85);
+      border: 1px solid rgba(255, 179, 198, 0.25);
+      border-radius: 18px;
+      padding: 10px 12px;
+      backdrop-filter: blur(16px);
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 2px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+      animation: fadeSlideDown 0.25s ease;
+    }
+    .music-drawer.open { display: flex; }
+
+    @keyframes fadeSlideDown {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .music-controls-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .music-title {
+      font-size: 0.78rem;
+      color: var(--soft-pink);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 170px;
+    }
+
+    .music-btn-sm {
+      border: 1px solid rgba(255, 179, 198, 0.3);
+      background: rgba(255, 77, 141, 0.18);
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 99px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      font-family: var(--font-bn);
+    }
+
+    .volume-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    input[type="range"] {
+      flex: 1;
+      accent-color: var(--rose);
+      height: 4px;
+      cursor: pointer;
+    }
+
+    /* Main Step Stage */
+    .stage {
+      flex: 1;
+      min-height: 0;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 0;
+      overflow-y: auto;
+      scrollbar-width: none;
+    }
+    .stage::-webkit-scrollbar { display: none; }
+
+    .step-card {
+      width: 100%;
+      max-height: 100%;
+      overflow-y: auto;
+      scrollbar-width: none;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 28px;
+      padding: 24px 20px;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.14),
+        0 0 32px var(--step-glow, rgba(255, 30, 77, 0.18));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 14px;
+      position: relative;
+      animation: cardEnter 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .step-card::-webkit-scrollbar { display: none; }
+
+    @keyframes cardEnter {
+      0% { opacity: 0; transform: translateY(22px) scale(0.96); filter: blur(4px); }
+      100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+    }
+
+    /* Unique Step Theme Accents */
+    .theme-royal { --step-glow: rgba(255, 30, 77, 0.35); border-color: rgba(245, 197, 66, 0.35); }
+    .theme-whisper { --step-glow: rgba(157, 78, 221, 0.32); border-color: rgba(157, 78, 221, 0.35); }
+    .theme-apology { --step-glow: rgba(217, 4, 41, 0.38); border-color: rgba(255, 77, 109, 0.4); }
+    .theme-rose { --step-glow: rgba(255, 77, 141, 0.32); border-color: rgba(255, 143, 171, 0.38); }
+    .theme-starlight { --step-glow: rgba(245, 197, 66, 0.3); border-color: rgba(255, 226, 138, 0.35); }
+    .theme-aurora { --step-glow: rgba(255, 77, 141, 0.4); border-color: rgba(255, 179, 198, 0.4); }
+    .theme-sunshine { --step-glow: rgba(255, 183, 3, 0.25); border-color: rgba(255, 209, 102, 0.35); }
+    .theme-indigo { --step-glow: rgba(123, 44, 191, 0.36); border-color: rgba(199, 125, 255, 0.35); }
+    .theme-pulse { --step-glow: rgba(255, 30, 77, 0.36); border-color: rgba(255, 117, 143, 0.4); }
+    .theme-gift { --step-glow: rgba(245, 197, 66, 0.38); border-color: rgba(245, 197, 66, 0.45); }
+    .theme-promise { --step-glow: rgba(245, 197, 66, 0.35); border-color: rgba(255, 215, 0, 0.42); }
+    .theme-memory { --step-glow: rgba(255, 77, 141, 0.32); border-color: rgba(255, 179, 198, 0.38); }
+    .theme-bouquet { --step-glow: rgba(230, 57, 70, 0.35); border-color: rgba(255, 158, 187, 0.42); }
+    .theme-candle { --step-glow: rgba(255, 159, 28, 0.3); border-color: rgba(255, 214, 153, 0.38); }
+    .theme-finale {
+      --step-glow: rgba(255, 30, 77, 0.55);
+      border-color: rgba(245, 197, 66, 0.55);
+      background: linear-gradient(165deg, rgba(38, 10, 32, 0.78), rgba(18, 6, 22, 0.85));
+    }
+
+    .emoji-halo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 1.25rem;
+      padding: 6px 14px;
+      border-radius: 99px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      animation: softFloat 3.2s ease-in-out infinite;
+    }
+
+    @keyframes softFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    .hero-emblem {
+      font-size: 3.8rem;
+      line-height: 1;
+      filter: drop-shadow(0 0 22px rgba(255, 30, 77, 0.75));
+      animation: heartbeat 1.4s ease-in-out infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      20% { transform: scale(1.13); }
+      35% { transform: scale(0.98); }
+      55% { transform: scale(1.09); }
+    }
+
+    .step-kicker {
+      font-family: var(--font-en);
+      font-size: 0.72rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      opacity: 0.9;
+    }
+
+    .step-title {
+      font-size: 1.48rem;
+      font-weight: 700;
+      line-height: 1.35;
+      background: linear-gradient(120deg, #ffffff 10%, var(--soft-pink) 55%, var(--gold-soft) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textReveal 0.65s ease both;
+    }
+
+    .step-title.giant {
+      font-size: 1.75rem;
+    }
+
+    .step-message {
+      font-size: 1.03rem;
+      line-height: 1.78;
+      color: #fcebf2;
+      font-weight: 400;
+      animation: textReveal 0.8s ease 0.1s both;
+    }
+
+    @keyframes textReveal {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .quote-box {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.045);
+      border-left: 3px solid var(--gold);
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--gold-soft);
+      line-height: 1.5;
+      text-align: left;
+    }
+
+    /* Special Interactive Widgets inside Steps */
+    .ecg-line {
+      width: 180px;
+      height: 36px;
+      opacity: 0.9;
+    }
+    .ecg-path {
+      stroke-dasharray: 320;
+      stroke-dashoffset: 320;
+      animation: ecgDraw 2.2s linear infinite;
+    }
+    @keyframes ecgDraw {
+      0% { stroke-dashoffset: 320; }
+      70% { stroke-dashoffset: 0; opacity: 1; }
+      100% { stroke-dashoffset: -120; opacity: 0.4; }
+    }
+
+    /* Step 10 Gift Box */
+    .gift-stage {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin: 4px 0;
+      width: 100%;
+    }
+
+    .gift-box-btn {
+      position: relative;
+      width: 112px;
+      height: 100px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      transition: transform 0.3s ease;
+    }
+    .gift-box-btn:hover { transform: scale(1.05); }
+    .gift-box-btn.shake { animation: giftWiggle 2s infinite ease-in-out; }
+
+    @keyframes giftWiggle {
+      0%, 82%, 100% { transform: rotate(0deg) scale(1); }
+      86% { transform: rotate(-6deg) scale(1.05); }
+      90% { transform: rotate(6deg) scale(1.05); }
+      94% { transform: rotate(-4deg) scale(1.04); }
+    }
+
+    .gift-lid {
+      width: 104px;
+      height: 24px;
+      background: linear-gradient(135deg, #ff2a5f, #c90e3d);
+      border-radius: 8px;
+      border: 2px solid var(--gold);
+      position: relative;
+      z-index: 2;
+      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35);
+    }
+    .gift-lid::before {
+      content: '🎀';
+      position: absolute;
+      top: -22px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.7rem;
+    }
+    .gift-body {
+      width: 92px;
+      height: 62px;
+      background: linear-gradient(160deg, #ff1e4d, #8f082a);
+      border-radius: 0 0 12px 12px;
+      border: 2px solid var(--gold);
+      border-top: none;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 26px rgba(255, 30, 77, 0.45);
+    }
+    .gift-body::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--gold-soft), var(--gold));
+    }
+    .gift-box-btn.opened .gift-lid {
+      transform: translateY(-28px) rotate(-14deg);
+    }
+
+    .gift-reveal {
+      display: none;
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(255, 30, 77, 0.22), rgba(245, 197, 66, 0.16));
+      border: 1px solid rgba(245, 197, 66, 0.45);
+      color: #fff;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      animation: cardEnter 0.5s ease;
+    }
+    .gift-reveal.show { display: block; }
+
+    /* Step 11 Promise Pills */
+    .promise-list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .promise-item {
+      padding: 8px 12px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(245, 197, 66, 0.25);
+      font-size: 0.86rem;
+      color: var(--gold-soft);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-align: left;
+    }
+
+    /* Step 12 Memory Gallery */
+    .memory-controls {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .caption-input {
+      width: 100%;
+      padding: 9px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 179, 198, 0.3);
+      background: rgba(255, 255, 255, 0.07);
+      color: #fff;
+      font-family: var(--font-bn);
+      font-size: 0.86rem;
+      outline: none;
+    }
+    .caption-input::placeholder { color: rgba(255, 210, 225, 0.55); }
+
+    .upload-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 14px;
+      border: 1px dashed rgba(255, 179, 198, 0.55);
+      background: rgba(255, 77, 141, 0.14);
+      color: var(--soft-pink);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .upload-btn:hover { background: rgba(255, 77, 141, 0.24); }
+
+    .memory-grid {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      max-height: 220px;
+      overflow-y: auto;
+      padding: 2px;
+    }
+
+    .memory-card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 179, 198, 0.28);
+      border-radius: 14px;
+      padding: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      animation: cardEnter 0.4s ease;
+    }
+
+    .memory-card img {
+      width: 100%;
+      height: 108px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .memory-caption {
+      font-size: 0.74rem;
+      color: var(--soft-pink);
+      line-height: 1.35;
+      word-break: break-word;
+    }
+
+    .memory-del {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(10, 5, 15, 0.75);
+      color: #fff;
+      font-size: 0.72rem;
+      cursor: pointer;
+    }
+
+    .empty-memory {
+      width: 100%;
+      padding: 18px 12px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 179, 198, 0.18);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .empty-memory-hearts {
+      font-size: 2.3rem;
+      animation: heartbeat 1.3s infinite ease-in-out;
+    }
+
+    /* Buttons */
+    .btn-primary {
+      width: 100%;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--red) 0%, var(--rose) 55%, var(--purple) 100%);
+      color: #fff;
+      font-family: var(--font-en);
+      font-weight: 600;
+      font-size: 0.96rem;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      box-shadow: 0 10px 26px rgba(255, 30, 77, 0.45);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+      animation: shimmer 3s infinite;
+    }
+    @keyframes shimmer {
+      0% { left: -100%; }
+      45%, 100% { left: 150%; }
+    }
+
+    .btn-primary:active { transform: scale(0.97); }
+
+    .btn-soft {
+      width: 100%;
+      padding: 13px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 179, 198, 0.38);
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--soft-pink);
+      font-family: var(--font-en);
+      font-weight: 600;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .btn-soft:active { transform: scale(0.97); }
+
+    .finale-actions {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .finale-response {
+      width: 100%;
+      padding: 16px;
+      border-radius: 20px;
+      background: linear-gradient(145deg, rgba(255, 30, 77, 0.22), rgba(157, 78, 221, 0.18));
+      border: 1px solid rgba(245, 197, 66, 0.45);
+      animation: cardEnter 0.55s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    /* Bottom Navigation */
+    .bottom-nav {
+      flex-shrink: 0;
+      padding: 8px 2px 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      z-index: 10;
+    }
+
+    .nav-btn {
+      flex: 1;
+      padding: 12px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 179, 198, 0.24);
+      background: rgba(24, 12, 30, 0.72);
+      backdrop-filter: blur(12px);
+      color: var(--text-main);
+      font-family: var(--font-bn);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .nav-btn.next {
+      background: linear-gradient(135deg, var(--red), var(--rose));
+      border-color: rgba(255, 179, 198, 0.45);
+      box-shadow: 0 8px 20px rgba(255, 30, 77, 0.35);
+    }
+    .nav-btn:active { transform: scale(0.96); }
+    .nav-btn.hidden { visibility: hidden; pointer-events: none; }
+
+    /* Love Letter Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      background: rgba(5, 2, 8, 0.78);
+      backdrop-filter: blur(10px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+    }
+    .modal-overlay.open { display: flex; }
+
+    .letter-card {
+      width: 100%;
+      max-width: 410px;
+      background: linear-gradient(165deg, #240c24 0%, #120614 100%);
+      border: 1px solid rgba(245, 197, 66, 0.45);
+      border-radius: 26px;
+      padding: 24px 20px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75), 0 0 36px rgba(255, 77, 141, 0.28);
+      position: relative;
+      animation: cardEnter 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-height: 84dvh;
+      overflow-y: auto;
+    }
+
+    .letter-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 179, 198, 0.3);
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .letter-head {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--gold-soft);
+      text-align: center;
+    }
+
+    .letter-body {
+      font-size: 0.96rem;
+      line-height: 1.8;
+      color: #fcebf2;
+      text-align: left;
+      white-space: pre-line;
+    }
+
+    .letter-sign {
+      text-align: right;
+      font-weight: 700;
+      color: var(--soft-pink);
+      margin-top: 6px;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 78px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: rgba(25, 10, 32, 0.92);
+      border: 1px solid var(--rose);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 99px;
+      font-size: 0.82rem;
+      z-index: 95;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div id="loadingScreen">
+    <div class="loader-heart">💖</div>
+    <div class="loader-title">ZINIYA — AMAR JAN ❤️</div>
+    <div class="loader-sub">তোমার জন্য ভালোবাসা সাজানো হচ্ছে... 🌹✨</div>
+    <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  </div>
+
+  <!-- Background & FX -->
+  <div class="app-bg"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div id="ambientLayer"></div>
+  <canvas id="fxCanvas"></canvas>
+
+  <!-- Main App Shell -->
+  <div class="app-shell">
+
+    <!-- Header & Progress -->
+    <header class="top-header">
+      <div class="top-row">
+        <div class="brand-pill">👑 ZINIYA — AMAR JAN ❤️</div>
+        <div class="top-actions">
+          <button id="installBtn" class="icon-btn" style="display:none;" title="Install App">📲</button>
+          <button id="letterBtn" class="icon-btn" title="Love Letter">💌</button>
+          <button id="musicToggleBtn" class="icon-btn" title="Play/Pause Music">🎵</button>
+          <button id="musicDrawerBtn" class="icon-btn" title="Music Settings">⚙️</button>
+        </div>
+      </div>
+
+      <!-- Music Player Controls Drawer -->
+      <div id="musicDrawer" class="music-drawer">
+        <div class="music-controls-row">
+          <span id="musicTrackName" class="music-title">🎶 Soft Romantic Melody</span>
+          <div style="display:flex; gap:6px;">
+            <button id="musicOnOffBtn" class="music-btn-sm">Music: OFF</button>
+            <label class="music-btn-sm" style="cursor:pointer;">
+              📁 গান দিন
+              <input id="audioUploadInput" type="file" accept="audio/*" hidden />
+            </label>
+          </div>
+        </div>
+        <div class="volume-row">
+          <span>🔉 Volume</span>
+          <input id="volumeSlider" type="range" min="0" max="1" step="0.05" value="0.6" />
+        </div>
+      </div>
+
+      <div class="progress-meta">
+        <span id="stepTitleMini">Our Love Story</span>
+        <span id="stepCounter" class="step-badge">STEP 01 / 15</span>
+      </div>
+      <div class="progress-track">
+        <div id="progressFill" class="progress-fill"></div>
+      </div>
+    </header>
+
+    <!-- Dynamic 15-Step Stage -->
+    <main id="stage" class="stage"></main>
+
+    <!-- Bottom Navigation -->
+    <footer id="bottomNav" class="bottom-nav">
+      <button id="prevBtn" class="nav-btn">⬅️ পিছনে</button>
+      <button id="nextBtn" class="nav-btn next">পরবর্তী ধাপ ➡️</button>
+    </footer>
+  </div>
+
+  <!-- Love Letter Modal -->
+  <div id="letterModal" class="modal-overlay">
+    <div class="letter-card">
+      <button id="closeLetterBtn" class="letter-close">✕</button>
+      <div class="letter-head">💌 প্রিয় Ziniya-র জন্য চিরকুট</div>
+      <div class="letter-body">আমার জান Ziniya,
+
+জানি, আমার কথা বা আচরণে তুমি অনেক কষ্ট পেয়েছো। তোমার চোখে জল বা মনে অভিমান জমুক—এটা আমি কখনোই চাইনি।
+
+পৃথিবীর সবার মাঝে তুমিই আমার সবচেয়ে আপন, সবচেয়ে দামি মানুষ। আমার ভুলগুলো শুধরে আমি আবার তোমার হাসিমুখ দেখতে চাই। কোনো তাড়াহুড়ো নেই, শুধু জানিও—আমি সবসময় তোমারই আছি। 🥹❤️🌹</div>
+      <div class="letter-sign">— শুধুই তোমার পাগলটা ♾️💍</div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <audio id="customAudio" loop></audio>
+
+  <script>
+    (function () {
+      'use strict';
+
+      /* ========================
+         STATE & STORAGE
+      ======================== */
+      const STORAGE_KEY = 'ziniya_apology_app_v1';
+      let state = {
+        step: 1,
+        giftOpened: false,
+        finalChoice: null, // 'yes' | 'time' | null
+        musicEnabled: false,
+        volume: 0.6
+      };
+
+      try {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        if (saved && typeof saved === 'object') {
+          state = { ...state, ...saved };
+          if (state.step < 1 || state.step > 15) state.step = 1;
+        }
+      } catch (e) {}
+
+      function saveState() {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        } catch (e) {}
+      }
+
+      /* ========================
+         15 ROMANTIC STEPS DATA
+      ======================== */
+      const STEPS = [
+        {
+          id: 1,
+          theme: 'theme-royal',
+          kicker: 'STEP 01 • WELCOME MY QUEEN',
+          miniTitle: 'Ziniya, Amar Jan ❤️',
+          emojis: '❤️ 👑 ✨ 🌹 🥹',
+          emblem: '💖',
+          title: 'Ziniya, Amar Jan 🥹❤️',
+          message: 'তোমার জন্য আমার ছোট্ট একটা আয়োজন। একটু সময় নিয়ে শেষ পর্যন্ত দেখবে?',
+          quote: '“তুমি শুধু আমার ভালোবাসা নও, তুমি আমার পুরো পৃথিবী।” ✨',
+          isWelcome: true
+        },
+        {
+          id: 2,
+          theme: 'theme-whisper',
+          kicker: 'STEP 02 • HEART TO HEART',
+          miniTitle: 'কিছু কথা বলতে চাই 🥺',
+          emojis: '🥺 💌 🌙 💕 🦋',
+          emblem: '💌',
+          title: 'কিছু কথা বলতে চাই 🥺',
+          message: 'জানো Ziniya, তোমাকে অনেক কথা বলতে চাই। কিন্তু মুখে সব কথা বলা হয়ে ওঠে না। তাই আজ এই ছোট্ট আয়োজনের মাধ্যমে আমার মনের সব কথা তোমাকে বলতে চাই।',
+          quote: '“না বলা কথাগুলো যখন ভালোবাসায় জমে, তখন তা শুধু তোমারই নামে লেখা হয়।” 🌸'
+        },
+        {
+          id: 3,
+          theme: 'theme-apology',
+          kicker: 'STEP 03 • SINCERE APOLOGY',
+          miniTitle: "I'm Really Sorry 💔",
+          emojis: '💔 🥺 ❤️‍🩹 🥹 💧',
+          emblem: '💔',
+          title: "I'm Really Sorry 💔",
+          message: 'আমার জান, আমি জানি আমি তোমাকে অনেক কষ্ট দিয়েছি। আমার ভুলের জন্য সত্যিই আমি দুঃখিত। তোমার চোখের পানি হওয়ার কারণ আমি হতে চাই না। আমাকে ক্ষমা করে দিও। 🥺❤️',
+          quote: '“তোমার চোখের এক ফোঁটা জলও আমার পুরো পৃথিবীটাকে অন্ধকার করে দেয়।” 🥀'
+        },
+        {
+          id: 4,
+          theme: 'theme-rose',
+          kicker: 'STEP 04 • UNDERSTANDING YOU',
+          miniTitle: 'তোমার অভিমান 🌹',
+          emojis: '🌹 🌷 🥀 💓 🥺',
+          emblem: '🌹',
+          title: 'তোমার অভিমান 🌹',
+          message: 'তোমার রাগ, তোমার অভিমান, তোমার নীরবতা—সবকিছুর পেছনে হয়তো অনেক কষ্ট লুকিয়ে আছে। আমি তোমার অনুভূতিগুলো বুঝতে চাই।',
+          quote: '“অভিমান তো মানুষ তার ওপরই করে, যাকে সে মন থেকে ভালোবাসে।” 🌹'
+        },
+        {
+          id: 5,
+          theme: 'theme-starlight',
+          kicker: 'STEP 05 • ONE IN A MILLION',
+          miniTitle: 'তুমি আমার কাছে বিশেষ 💗',
+          emojis: '💗 ✨ 👑 💫 🫶',
+          emblem: '💗',
+          title: 'তুমি আমার কাছে বিশেষ 💗',
+          message: 'পৃথিবীতে অনেক মানুষ আছে, কিন্তু আমার কাছে তুমি আলাদা। তোমার জায়গাটা অন্য কেউ কখনো নিতে পারবে না।',
+          quote: '“হাজারো ভিড়ের মাঝেও আমার চোখ শুধু তোমাকেই খুঁজে ফেরে।” ♾️'
+        },
+        {
+          id: 6,
+          theme: 'theme-aurora',
+          kicker: 'STEP 06 • DEEPEST FEELINGS',
+          miniTitle: 'আমার ভালোবাসা 💞',
+          emojis: '💞 💘 💖 😍 💋',
+          emblem: '💞',
+          title: 'আমার ভালোবাসা 💞',
+          message: 'আমি জানি না কীভাবে বোঝাবো তোমাকে কতটা ভালোবাসি। শুধু জানি, তুমি আমার জীবনের অনেক সুন্দর একটি অনুভূতি।',
+          quote: '“ভালোবাসা কোনো শব্দে বাঁধা যায় না, এটা শুধু অনুভব করা যায়।” 💘'
+        },
+        {
+          id: 7,
+          theme: 'theme-sunshine',
+          kicker: 'STEP 07 • YOUR PRECIOUS SMILE',
+          miniTitle: 'তোমার হাসি 🥰',
+          emojis: '🥰 🦋 🌸 ☀️ 😊',
+          emblem: '🦋',
+          title: 'তোমার হাসি 🥰',
+          message: 'তোমার হাসিটা আমার কাছে অনেক মূল্যবান। আমি চাই তুমি মন খুলে হাসো, আর আমার কোনো ভুল যেন তোমার হাসি কেড়ে না নেয়।',
+          quote: '“তোমার এক চিলতে হাসিই আমার মন ভালো করার একমাত্র ওষুধ।” 🥰'
+        },
+        {
+          id: 8,
+          theme: 'theme-indigo',
+          kicker: 'STEP 08 • REALIZATION',
+          miniTitle: 'আমার ভুলগুলো 🥹',
+          emojis: '🥹 🤍 🫂 💫 🌧️',
+          emblem: '🥹',
+          title: 'আমার ভুলগুলো 🥹',
+          message: 'আমি নিখুঁত মানুষ নই। আমার ভুল হয়েছে, তোমাকে কষ্ট দিয়েছি। কিন্তু আমি নিজের ভুল বুঝতে চাই এবং নিজেকে বদলাতে চাই।',
+          quote: '“ভুল স্বীকার করা মানেই ছোট হওয়া নয়, বরং সম্পর্কটাকে ভালোবাসার প্রমাণ দেওয়া।” 🫶'
+        },
+        {
+          id: 9,
+          theme: 'theme-pulse',
+          kicker: 'STEP 09 • MY HEARTBEAT',
+          miniTitle: 'তোমাকে হারাতে চাই না ❤️‍🩹',
+          emojis: '❤️‍🩹 💓 🫂 🥺 💕',
+          emblem: '❤️‍🩹',
+          title: 'তোমাকে হারাতে চাই না ❤️‍🩹',
+          message: 'তোমার সঙ্গে কথা না হলে মনটা খারাপ হয়ে যায়। আমি চাই আমাদের মধ্যে আবার সুন্দর বোঝাপড়া ফিরে আসুক।',
+          quote: '“তুমি পাশে না থাকলে প্রতিটি মুহূর্ত যেন শূন্য লাগে।” 💓',
+          hasEcg: true
+        },
+        {
+          id: 10,
+          theme: 'theme-gift',
+          kicker: 'STEP 10 • A LITTLE SURPRISE',
+          miniTitle: 'তুমি আমার সুখ 🎁',
+          emojis: '🎁 🎀 🧸 💖 ✨',
+          emblem: '🧸',
+          title: 'তুমি আমার সুখ 🎁',
+          message: 'তোমার ছোট্ট একটা মেসেজ, একটু সময়, একটু ভালোবাসা—আমার কাছে অনেক বড় পাওয়া।',
+          quote: '“তোমার একটুখানি ভালোবাসাই আমার সারা দিনের প্রশান্তি।” 🎀',
+          hasGiftBox: true
+        },
+        {
+          id: 11,
+          theme: 'theme-promise',
+          kicker: 'STEP 11 • FOREVER PROMISES',
+          miniTitle: 'আমার প্রতিশ্রুতি 💍',
+          emojis: '💍 ♾️ 👑 💛 ✨',
+          emblem: '💍',
+          title: 'আমার প্রতিশ্রুতি 💍',
+          message: 'আমি চেষ্টা করব তোমার কথা মন দিয়ে শুনতে, তোমার অনুভূতিকে সম্মান করতে এবং একই ভুল বারবার না করতে।',
+          quote: '“প্রতিশ্রুতি শুধু কথায় নয়, আমি আমার প্রতিটি কাজে তা প্রমাণ করতে চাই।” 💍',
+          hasPromises: true
+        },
+        {
+          id: 12,
+          theme: 'theme-memory',
+          kicker: 'STEP 12 • OUR PRECIOUS MOMENTS',
+          miniTitle: 'Our Beautiful Memories 📸',
+          emojis: '📸 💕 🌸 💐 😘',
+          emblem: '📸',
+          title: 'Our Beautiful Memories 📸',
+          message: 'আমাদের সুন্দর স্মৃতিগুলো এখানে সাজিয়ে রাখো। প্রতিটি ছবি আমাদের ভালোবাসার গল্প বলে।',
+          quote: '“সময় চলে যায়, কিন্তু সুন্দর স্মৃতিগুলো হৃদয়ে চিরকাল থেকে যায়।” 💐',
+          hasGallery: true
+        },
+        {
+          id: 13,
+          theme: 'theme-bouquet',
+          kicker: 'STEP 13 • ENDLESS ADORATION',
+          miniTitle: 'হাজারো ভালোবাসা 💝',
+          emojis: '💝 💐 🌹 😘 🫶',
+          emblem: '💝',
+          title: 'হাজারো ভালোবাসা 💝',
+          message: 'তোমার রাগ, অভিমান, হাসি, মন খারাপ—সবকিছুর মধ্যেও তুমি আমার কাছে অনেক মূল্যবান। আমি তোমাকে সম্মান করতে চাই, বুঝতে চাই এবং ভালোবাসতে চাই।',
+          quote: '“তুমি যেমন আছো, ঠিক তেমনভাবেই আমার কাছে অনন্য ও অমূল্য।” 💝'
+        },
+        {
+          id: 14,
+          theme: 'theme-candle',
+          kicker: 'STEP 14 • HUMBLE REQUEST',
+          miniTitle: 'আমার শেষ অনুরোধ 🥺🌹',
+          emojis: '🥺 🌹 🕯️ ✨ ❤️',
+          emblem: '🌹',
+          title: 'আমার শেষ অনুরোধ 🥺🌹',
+          message: 'Ziniya, Amar Jan, আমি তোমার কাছে শুধু একটা সুযোগ চাই। আমাকে আমার কাজের মাধ্যমে প্রমাণ করতে দাও যে আমি সত্যিই বদলাতে চাই। তোমাকে ক্ষমা করার জন্য কোনো চাপ নেই।',
+          quote: '“সত্যিকারের ভালোবাসা কখনো জোর করে না, শুধু ধৈর্য ধরে অপেক্ষা করে।” 🕯️'
+        },
+        {
+          id: 15,
+          theme: 'theme-finale',
+          kicker: 'STEP 15 • THE FINAL QUESTION',
+          miniTitle: 'WILL YOU FORGIVE ME? ❤️',
+          emojis: '❤️ 💍 🌹 ✨ 🥹 ♾️',
+          emblem: '❤️',
+          title: 'WILL YOU FORGIVE ME? ❤️',
+          isFinale: true
+        }
+      ];
+
+      /* ========================
+         INDEXEDDB FOR PHOTOS
+      ======================== */
+      const DB_NAME = 'ZiniyaMemoriesDB';
+      const STORE_NAME = 'photos';
+      let dbInstance = null;
+
+      function openDB() {
+        return new Promise((resolve) => {
+          if (!('indexedDB' in window)) return resolve(null);
+          const req = indexedDB.open(DB_NAME, 1);
+          req.onupgradeneeded = (e) => {
+            const db = e.target.result;
+            if (!db.objectStoreNames.contains(STORE_NAME)) {
+              db.createObjectStore(STORE_NAME, { keyPath: 'id', autoIncrement: true });
+            }
+          };
+          req.onsuccess = (e) => { dbInstance = e.target.result; resolve(dbInstance); };
+          req.onerror = () => resolve(null);
+        });
+      }
+
+      async function getAllPhotos() {
+        const db = dbInstance || await openDB();
+        if (!db) return [];
+        return new Promise((resolve) => {
+          const tx = db.transaction(STORE_NAME, 'readonly');
+          const req = tx.objectStore(STORE_NAME).getAll();
+          req.onsuccess = () => resolve(req.result || []);
+          req.onerror = () => resolve([]);
+        });
+      }
+
+      async function addPhotoToDB(dataUrl, caption) {
+        const db = dbInstance || await openDB();
+        if (!db) return;
+        return new Promise((resolve) => {
+          const tx = db.transaction(STORE_NAME, 'readwrite');
+          tx.objectStore(STORE_NAME).add({ dataUrl, caption, createdAt: Date.now() });
+          tx.oncomplete = () => resolve(true);
+          tx.onerror = () => resolve(false);
+        });
+      }
+
+      async function deletePhotoFromDB(id) {
+        const db = dbInstance || await openDB();
+        if (!db) return;
+        return new Promise((resolve) => {
+          const tx = db.transaction(STORE_NAME, 'readwrite');
+          tx.objectStore(STORE_NAME).delete(id);
+          tx.oncomplete = () => resolve(true);
+          tx.onerror = () => resolve(false);
+        });
+      }
+
+      function compressImage(file) {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = (ev) => {
+            const img = new Image();
+            img.onload = () => {
+              const maxW = 900;
+              let w = img.width, h = img.height;
+              if (w > maxW) {
+                h = Math.round((h * maxW) / w);
+                w = maxW;
+              }
+              const canvas = document.createElement('canvas');
+              canvas.width = w;
+              canvas.height = h;
+              const ctx = canvas.getContext('2d');
+              ctx.drawImage(img, 0, 0, w, h);
+              resolve(canvas.toDataURL('image/jpeg', 0.82));
+            };
+            img.onerror = reject;
+            img.src = ev.target.result;
+          };
+          reader.onerror = reject;
+          reader.readAsDataURL(file);
+        });
+      }
+
+      /* ========================
+         ROMANTIC AUDIO ENGINE
+         (Built-in Soft Web Audio + Custom File Support)
+      ======================== */
+      const customAudio = document.getElementById('customAudio');
+      const musicToggleBtn = document.getElementById('musicToggleBtn');
+      const musicOnOffBtn = document.getElementById('musicOnOffBtn');
+      const musicDrawerBtn = document.getElementById('musicDrawerBtn');
+      const musicDrawer = document.getElementById('musicDrawer');
+      const volumeSlider = document.getElementById('volumeSlider');
+      const audioUploadInput = document.getElementById('audioUploadInput');
+      const musicTrackName = document.getElementById('musicTrackName');
+
+      let hasCustomAudio = false;
+      let audioCtx = null;
+      let masterGain = null;
+      let synthTimer = null;
+      let isPlaying = false;
+
+      // Gentle romantic piano-like chords (Cmaj7 - Am7 - Fmaj7 - G6)
+      const chords = [
+        [261.63, 329.63, 392.00, 493.88],
+        [220.00, 261.63, 329.63, 392.00],
+        [174.61, 220.00, 261.63, 329.63],
+        [196.00, 246.94, 293.66, 329.63]
+      ];
+      let chordIdx = 0, noteIdx = 0;
+
+      function playSoftNote(freq) {
+        if (!audioCtx || !masterGain) return;
+        const now = audioCtx.currentTime;
+        const osc = audioCtx.createOscillator();
+        const env = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, now);
+
+        env.gain.setValueAtTime(0.0001, now);
+        env.gain.exponentialRampToValueAtTime(0.22, now + 0.08);
+        env.gain.exponentialRampToValueAtTime(0.0001, now + 2.1);
+
+        osc.connect(env);
+        env.connect(masterGain);
+        osc.start(now);
+        osc.stop(now + 2.2);
+      }
+
+      function startSynth() {
+        if (!audioCtx) {
+          const AC = window.AudioContext || window.webkitAudioContext;
+          if (!AC) return;
+          audioCtx = new AC();
+          masterGain = audioCtx.createGain();
+          masterGain.gain.value = state.volume * 0.45;
+          masterGain.connect(audioCtx.destination);
+        }
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        if (synthTimer) clearInterval(synthTimer);
+        synthTimer = setInterval(() => {
+          if (!isPlaying || hasCustomAudio) return;
+          const chord = chords[chordIdx];
+          playSoftNote(chord[noteIdx]);
+          noteIdx++;
+          if (noteIdx >= chord.length) {
+            noteIdx = 0;
+            chordIdx = (chordIdx + 1) % chords.length;
+          }
+        }, 620);
+      }
+
+      function stopSynth() {
+        if (synthTimer) {
+          clearInterval(synthTimer);
+          synthTimer = null;
+        }
+      }
+
+      function updateMusicUI() {
+        musicToggleBtn.classList.toggle('active', isPlaying);
+        musicToggleBtn.textContent = isPlaying ? '🔊' : '🎵';
+        musicOnOffBtn.textContent = isPlaying ? 'Music: ON' : 'Music: OFF';
+      }
+
+      function startMusic() {
+        isPlaying = true;
+        state.musicEnabled = true;
+        saveState();
+        if (hasCustomAudio) {
+          stopSynth();
+          customAudio.volume = state.volume;
+          customAudio.play().catch(() => {});
+        } else {
+          startSynth();
+        }
+        updateMusicUI();
+      }
+
+      function stopMusic() {
+        isPlaying = false;
+        state.musicEnabled = false;
+        saveState();
+        customAudio.pause();
+        stopSynth();
+        updateMusicUI();
+      }
+
+      function toggleMusic() {
+        if (isPlaying) stopMusic();
+        else startMusic();
+      }
+
+      musicToggleBtn.addEventListener('click', toggleMusic);
+      musicOnOffBtn.addEventListener('click', toggleMusic);
+      musicDrawerBtn.addEventListener('click', () => {
+        musicDrawer.classList.toggle('open');
+      });
+
+      volumeSlider.value = state.volume;
+      volumeSlider.addEventListener('input', (e) => {
+        state.volume = parseFloat(e.target.value);
+        customAudio.volume = state.volume;
+        if (masterGain && audioCtx) {
+          masterGain.gain.setTargetAtTime(state.volume * 0.45, audioCtx.currentTime, 0.05);
+        }
+        saveState();
+      });
+
+      audioUploadInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const url = URL.createObjectURL(file);
+        customAudio.src = url;
+        hasCustomAudio = true;
+        musicTrackName.textContent = '🎶 ' + file.name;
+        startMusic();
+        showToast('পছন্দের গান যুক্ত হয়েছে! 🎵❤️');
+      });
+
+      /* ========================
+         AMBIENT PARTICLES & GRAND FX
+      ======================== */
+      const ambientLayer = document.getElementById('ambientLayer');
+      const fxCanvas = document.getElementById('fxCanvas');
+      const fxCtx = fxCanvas.getContext('2d');
+      let fxParticles = [];
+      let fxRunning = false;
+
+      function resizeCanvas() {
+        fxCanvas.width = window.innerWidth;
+        fxCanvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+
+      const ambientSymbols = ['❤️', '💗', '💕', '✨', '🦋', '🌸', '💖'];
+      const petalSymbols = ['🌹', '🌸', '🌷', '✨'];
+
+      setInterval(() => {
+        if (document.hidden || ambientLayer.childElementCount > 16) return;
+        const el = document.createElement('span');
+        const isFinale = state.step === 15;
+        const isPetal = isFinale ? Math.random() < 0.6 : Math.random() < 0.35;
+
+        if (isPetal) {
+          el.className = 'falling-petal';
+          el.textContent = petalSymbols[Math.floor(Math.random() * petalSymbols.length)];
+          el.style.left = Math.random() * 100 + 'vw';
+          el.style.fontSize = (14 + Math.random() * 12) + 'px';
+          el.style.setProperty('--drift', (Math.random() * 90 - 45) + 'px');
+          el.style.setProperty('--rot', (Math.random() * 360) + 'deg');
+          el.style.animationDuration = (5.5 + Math.random() * 3.5) + 's';
+        } else {
+          el.className = 'floating-item';
+          el.textContent = ambientSymbols[Math.floor(Math.random() * ambientSymbols.length)];
+          el.style.left = Math.random() * 100 + 'vw';
+          el.style.fontSize = (13 + Math.random() * 13) + 'px';
+          el.style.setProperty('--drift', (Math.random() * 70 - 35) + 'px');
+          el.style.setProperty('--rot', (Math.random() * 40 - 20) + 'deg');
+          el.style.animationDuration = (6 + Math.random() * 4) + 's';
+        }
+
+        ambientLayer.appendChild(el);
+        el.addEventListener('animationend', () => el.remove());
+      }, 650);
+
+      function triggerGrandCelebration() {
+        const colors = ['#ff1e4d', '#ff4d8d', '#f5c542', '#ffb3c6', '#9d4edd', '#ffffff'];
+        const cx = fxCanvas.width / 2;
+        const cy = fxCanvas.height * 0.45;
+
+        for (let i = 0; i < 95; i++) {
+          const angle = Math.random() * Math.PI * 2;
+          const speed = 2.5 + Math.random() * 7.5;
+          fxParticles.push({
+            x: cx,
+            y: cy,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed - 2.5,
+            size: 6 + Math.random() * 9,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            alpha: 1,
+            isHeart: Math.random() < 0.55,
+            rot: Math.random() * Math.PI * 2,
+            vRot: (Math.random() - 0.5) * 0.14
+          });
+        }
+        if (!fxRunning) {
+          fxRunning = true;
+          requestAnimationFrame(renderFx);
+        }
+      }
+
+      function drawHeart(ctx, x, y, size, color, alpha, rot) {
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate(rot);
+        ctx.globalAlpha = Math.max(0, alpha);
+        ctx.fillStyle = color;
+        ctx.beginPath();
+        const s = size * 0.55;
+        ctx.moveTo(0, s);
+        ctx.bezierCurveTo(-s * 1.4, -s * 0.4, -s * 0.8, -s * 1.6, 0, -s * 0.7);
+        ctx.bezierCurveTo(s * 0.8, -s * 1.6, s * 1.4, -s * 0.4, 0, s);
+        ctx.fill();
+        ctx.restore();
+      }
+
+      function renderFx() {
+        fxCtx.clearRect(0, 0, fxCanvas.width, fxCanvas.height);
+        fxParticles = fxParticles.filter((p) => p.alpha > 0.02);
+
+        for (const p of fxParticles) {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vy += 0.11; // soft gravity
+          p.vx *= 0.99;
+          p.rot += p.vRot;
+          p.alpha -= 0.011;
+
+          if (p.isHeart) {
+            drawHeart(fxCtx, p.x, p.y, p.size, p.color, p.alpha, p.rot);
+          } else {
+            fxCtx.save();
+            fxCtx.translate(p.x, p.y);
+            fxCtx.rotate(p.rot);
+            fxCtx.globalAlpha = Math.max(0, p.alpha);
+            fxCtx.fillStyle = p.color;
+            fxCtx.fillRect(-p.size / 2, -p.size / 4, p.size, p.size * 0.5);
+            fxCtx.restore();
+          }
+        }
+
+        if (fxParticles.length > 0) {
+          requestAnimationFrame(renderFx);
+        } else {
+          fxRunning = false;
+          fxCtx.clearRect(0, 0, fxCanvas.width, fxCanvas.height);
+        }
+      }
+
+      /* ========================
+         UI RENDERER
+      ======================== */
+      const stage = document.getElementById('stage');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const bottomNav = document.getElementById('bottomNav');
+      const progressFill = document.getElementById('progressFill');
+      const stepCounter = document.getElementById('stepCounter');
+      const stepTitleMini = document.getElementById('stepTitleMini');
+
+      function showToast(msg) {
+        const toast = document.getElementById('toast');
+        toast.textContent = msg;
+        toast.classList.add('show');
+        clearTimeout(toast._t);
+        toast._t = setTimeout(() => toast.classList.remove('show'), 2600);
+      }
+
+      async function renderGalleryItems(gridEl) {
+        const photos = await getAllPhotos();
+        gridEl.innerHTML = '';
+
+        if (!photos.length) {
+          gridEl.style.display = 'block';
+          gridEl.innerHTML = `
+            <div class="empty-memory">
+              <div class="empty-memory-hearts">💞 💖 💞</div>
+              <div style="font-size:0.86rem; color:var(--soft-pink);">
+                এখনো কোনো ছবি যোগ করা হয়নি।<br/>উপরের বাটন থেকে আমাদের প্রিয় ছবি যোগ করো! 🥺📸
+              </div>
+            </div>
+          `;
+          return;
+        }
+
+        gridEl.style.display = 'grid';
+        photos.forEach((item) => {
+          const card = document.createElement('div');
+          card.className = 'memory-card';
+          card.innerHTML = `
+            <button class="memory-del" title="Delete">✕</button>
+            <img src="${item.dataUrl}" alt="Our Memory" />
+            <div class="memory-caption">${escapeHtml(item.caption || 'আমাদের সুন্দর মুহূর্ত ❤️')}</div>
+          `;
+          card.querySelector('.memory-del').addEventListener('click', async () => {
+            await deletePhotoFromDB(item.id);
+            renderGalleryItems(gridEl);
+            showToast('ছবিটি সরানো হয়েছে');
+          });
+          gridEl.appendChild(card);
+        });
+      }
+
+      function escapeHtml(str) {
+        return str.replace(/[&<>"']/g, (m) => ({
+          '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+        }[m]));
+      }
+
+      async function renderStep() {
+        const data = STEPS[state.step - 1];
+        const pct = (state.step / 15) * 100;
+        progressFill.style.width = pct + '%';
+        stepCounter.textContent = `STEP ${String(state.step).padStart(2, '0')} / 15`;
+        stepTitleMini.textContent = data.miniTitle;
+
+        // Navigation visibility
+        if (state.step === 1) {
+          bottomNav.style.display = 'none';
+        } else {
+          bottomNav.style.display = 'flex';
+          prevBtn.classList.remove('hidden');
+          nextBtn.classList.toggle('hidden', state.step === 15);
+        }
+
+        const card = document.createElement('section');
+        card.className = `step-card ${data.theme}`;
+
+        let extraHtml = '';
+
+        if (data.hasEcg) {
+          extraHtml += `
+            <svg class="ecg-line" viewBox="0 0 200 40" fill="none">
+              <path class="ecg-path" d="M0 22 H55 L68 22 L76 6 L86 35 L96 14 L104 22 H200"
+                stroke="#ff4d8d" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          `;
+        }
+
+        if (data.hasGiftBox) {
+          extraHtml += `
+            <div class="gift-stage">
+              <button id="giftBoxBtn" class="gift-box-btn ${state.giftOpened ? 'opened' : 'shake'}" aria-label="Open Gift Box">
+                <div class="gift-lid"></div>
+                <div class="gift-body"></div>
+              </button>
+              <div style="font-size:0.8rem; color:var(--gold-soft);">
+                ${state.giftOpened ? '✨ তোমার জন্য ছোট্ট উপহার খোলা হয়েছে ✨' : '👆 Gift Box-এ ট্যাপ করো, সারপ্রাইজ আছে!'}
+              </div>
+              <div id="giftReveal" class="gift-reveal ${state.giftOpened ? 'show' : ''}">
+                💖✨ <strong>Surprise For Ziniya:</strong><br/>
+                পৃথিবীর সব দামি উপহারের চেয়েও তোমার একটুখানি হাসি আমার কাছে বেশি মূল্যবান। আমার পুরো হৃদয়টা আজ শুধু তোমার জন্য! 🌹🧸💍
+              </div>
+            </div>
+          `;
+        }
+
+        if (data.hasPromises) {
+          extraHtml += `
+            <div class="promise-list">
+              <div class="promise-item"><span>💎</span><span>তোমার প্রতিটি কথা মন দিয়ে ও ধৈর্য ধরে শুনব।</span></div>
+              <div class="promise-item"><span>🌹</span><span>তোমার রাগ ও অনুভূতিকে সবসময় সম্মান করব।</span></div>
+              <div class="promise-item"><span>♾️</span><span>একই ভুল আর কখনো বারবার করব না, ইনশাআল্লাহ।</span></div>
+            </div>
+          `;
+        }
+
+        if (data.hasGallery) {
+          extraHtml += `
+            <div class="memory-controls">
+              <input id="photoCaptionInput" type="text" class="caption-input" placeholder="ছবির নিচে সুন্দর ক্যাপশন লিখো (ঐচ্ছিক)..." />
+              <label class="upload-btn">
+                <span>📸 গ্যালারি থেকে ছবি যোগ করো (একাধিক)</span>
+                <input id="photoUploadInput" type="file" accept="image/*" multiple hidden />
+              </label>
+            </div>
+            <div id="memoryGrid" class="memory-grid"></div>
+          `;
+        }
+
+        if (data.isWelcome) {
+          card.innerHTML = `
+            <div class="emoji-halo">${data.emojis}</div>
+            <div class="hero-emblem">${data.emblem}</div>
+            <div class="step-kicker">${data.kicker}</div>
+            <h1 class="step-title giant">${data.title}</h1>
+            <p class="step-message">${data.message}</p>
+            <div class="quote-box">${data.quote}</div>
+            <button id="startStoryBtn" class="btn-primary">START MY LOVE STORY 💗</button>
+          `;
+        } else if (data.isFinale) {
+          let responseHtml = '';
+          if (state.finalChoice === 'yes') {
+            responseHtml = `
+              <div class="finale-response">
+                <div style="font-size:2.4rem;">🥹❤️🎉</div>
+                <h2 class="step-title">Thank You, My Love! 🥹❤️</h2>
+                <p class="step-message" style="font-size:0.96rem;">
+                  তোমার বিশ্বাস আর ভালোবাসার মর্যাদা রাখার চেষ্টা করব। এবার শুধু কথায় নয়, কাজেও তোমাকে ভালোবাসা দেখাতে চাই।
+                </p>
+              </div>
+            `;
+          } else if (state.finalChoice === 'time') {
+            responseHtml = `
+              <div class="finale-response" style="border-color:rgba(255,179,198,0.45);">
+                <div style="font-size:2.2rem;">🥺🌹🤍</div>
+                <p class="step-message" style="font-size:0.96rem;">
+                  ঠিক আছে আমার জান। ❤️ তোমাকে সময় দিলাম। তোমার অনুভূতিকে আমি সম্মান করি। যখন মন চাইবে, তখন কথা বলবে।
+                </p>
+              </div>
+            `;
+          }
+
+          card.innerHTML = `
+            <div class="emoji-halo">${data.emojis}</div>
+            <div class="hero-emblem" style="font-size:4.2rem;">❤️</div>
+            <div class="step-kicker">${data.kicker}</div>
+            <h1 class="step-title giant">Ziniya, Amar Jan... ❤️</h1>
+            <p class="step-message" style="font-size:1.1rem; font-weight:600; color:#ffd6e4;">
+              তুমি কি তোমার এই পাগলটাকে ক্ষমা করতে পারবে?
+            </p>
+            ${responseHtml}
+            <div class="finale-actions">
+              <button id="yesForgiveBtn" class="btn-primary">YES, I FORGIVE YOU ❤️</button>
+              <button id="needTimeBtn" class="btn-soft">I NEED SOME TIME 🥺</button>
+              <button id="restartBtn" class="btn-soft" style="border-style:dashed; opacity:0.88;">🔄 Restart Story</button>
+            </div>
+          `;
+        } else {
+          card.innerHTML = `
+            <div class="emoji-halo">${data.emojis}</div>
+            <div class="hero-emblem">${data.emblem}</div>
+            <div class="step-kicker">${data.kicker}</div>
+            <h2 class="step-title">${data.title}</h2>
+            <p class="step-message">${data.message}</p>
+            ${extraHtml}
+            <div class="quote-box">${data.quote}</div>
+          `;
+        }
+
+        stage.innerHTML = '';
+        stage.appendChild(card);
+
+        // Bind step-specific events
+        if (data.isWelcome) {
+          document.getElementById('startStoryBtn').addEventListener('click', () => {
+            if (!isPlaying) startMusic();
+            goToStep(2);
+          });
+        }
+
+        if (data.hasGiftBox) {
+          const giftBtn = document.getElementById('giftBoxBtn');
+          const giftReveal = document.getElementById('giftReveal');
+          giftBtn.addEventListener('click', () => {
+            state.giftOpened = true;
+            saveState();
+            giftBtn.classList.remove('shake');
+            giftBtn.classList.add('opened');
+            giftReveal.classList.add('show');
+            triggerGrandCelebration();
+          });
+        }
+
+        if (data.hasGallery) {
+          const gridEl = document.getElementById('memoryGrid');
+          const uploadEl = document.getElementById('photoUploadInput');
+          const captionEl = document.getElementById('photoCaptionInput');
+
+          await renderGalleryItems(gridEl);
+
+          uploadEl.addEventListener('change', async (e) => {
+            const files = Array.from(e.target.files || []);
+            if (!files.length) return;
+            const cap = captionEl.value.trim() || 'আমাদের প্রিয় স্মৃতি ❤️';
+            showToast('ছবি সেভ হচ্ছে... 📸');
+            for (const f of files) {
+              try {
+                const compressed = await compressImage(f);
+                await addPhotoToDB(compressed, cap);
+              } catch (err) {}
+            }
+            captionEl.value = '';
+            uploadEl.value = '';
+            await renderGalleryItems(gridEl);
+            showToast('স্মৃতিগুলো সুন্দরভাবে সেভ হয়েছে! 💖');
+          });
+        }
+
+        if (data.isFinale) {
+          document.getElementById('yesForgiveBtn').addEventListener('click', () => {
+            state.finalChoice = 'yes';
+            saveState();
+            renderStep();
+            triggerGrandCelebration();
+            setTimeout(triggerGrandCelebration, 500);
+          });
+
+          document.getElementById('needTimeBtn').addEventListener('click', () => {
+            state.finalChoice = 'time';
+            saveState();
+            renderStep();
+          });
+
+          document.getElementById('restartBtn').addEventListener('click', () => {
+            state.step = 1;
+            state.giftOpened = false;
+            state.finalChoice = null;
+            saveState();
+            renderStep();
+          });
+        }
+      }
+
+      function goToStep(num) {
+        if (num < 1 || num > 15) return;
+        state.step = num;
+        saveState();
+        renderStep();
+      }
+
+      prevBtn.addEventListener('click', () => goToStep(state.step - 1));
+      nextBtn.addEventListener('click', () => goToStep(state.step + 1));
+
+      // Love Letter Modal
+      const letterModal = document.getElementById('letterModal');
+      document.getElementById('letterBtn').addEventListener('click', () => letterModal.classList.add('open'));
+      document.getElementById('closeLetterBtn').addEventListener('click', () => letterModal.classList.remove('open'));
+      letterModal.addEventListener('click', (e) => {
+        if (e.target === letterModal) letterModal.classList.remove('open');
+      });
+
+      /* ========================
+         PWA INSTALL & SERVICE WORKER
+      ======================== */
+      let deferredPrompt = null;
+      const installBtn = document.getElementById('installBtn');
+
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        installBtn.style.display = 'inline-flex';
+      });
+
+      installBtn.addEventListener('click', async () => {
+        if (!deferredPrompt) return;
+        deferredPrompt.prompt();
+        await deferredPrompt.userChoice;
+        deferredPrompt = null;
+        installBtn.style.display = 'none';
+      });
+
+      if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+        navigator.serviceWorker.register('sw.js').catch(() => {});
+      }
+
+      /* ========================
+         BOOT APP
+      ======================== */
+      renderStep();
+      updateMusicUI();
+
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          document.getElementById('loadingScreen').classList.add('hide');
+        }, 1600);
+      });
+    })();
+  </script>
+</body>
+</html>
